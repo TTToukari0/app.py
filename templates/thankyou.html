@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<i>Thank you for submitting!</i>
+
+<br>
+
+<ul>
+
+    {% if ttype == 'urgent' %}
+        <em><b>This is urgent!</b></em>
+    {% elif ttype == 'normal' %}
+        <em><b>This is normal.</b></em>
+
+    {% endif %}
+
+</ul>
+
+{% endblock %}

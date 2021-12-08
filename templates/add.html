@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block contentweb1 %}class="nav-link active" aria-current="page"{% endblock %}
+
+{% block content %}
+<form method="POST">
+{# This hidden_tag is a CSRF security feature. #}
+{{ form.hidden_tag() }}
+<br>{{ form.title.label}}{{form.title}}
+<br>{{ form.content.label}}{{form.content}}
+<br>{{ form.deadline.label}}{{form.deadline}}
+<br>{{ form.ttype.label}}{{form.ttype}}
+<br>{{ form.country.label}}{{form.country}}
+<br>{{ form.submit() }}
+</form>
+
+{% endblock %}

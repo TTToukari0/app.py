@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contentweb2 %}class="nav-link active" aria-current="page"{% endblock %}
+
+{% block content %}
+
+
+{% for item in data %}
+<ul>
+<span> Title: {{item.title}} Content: {{item.content}} Deadline: {{item.deadline}} Ttype: {{item.ttype}} Country: {{item.country}} </span>
+
+</ul>
+{% endfor %}
+{% endblock %}
