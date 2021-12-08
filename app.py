@@ -8,6 +8,8 @@ from wtforms import (StringField,SubmitField)
 from flask_restful import Resource,Api
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+import pymongo
 
 
 app = Flask(__name__)
@@ -31,8 +33,13 @@ class MyForm(FlaskForm):
     country = SelectField("Please select your country:", choices=[('Belfast', 'Belfast'), ('Dublin', 'Dublin'), ('Cork', 'Cork'), ('Galway', 'Galway')])
     submit = SubmitField('Submit')
 
-app.config["MONGO_URI"] = "mongodb+srv://jovy:Jetzuko0429@cluster0.0s51g.mongodb.net/assignment-two?retryWrites=true&w=majority"
-app.config['SECRET_KEY'] = "secret_key"
+#app.config["MONGO_URI"] = "mongodb+srv://jovy:Jetzuko0429@cluster0.0s51g.mongodb.net/assignment-two?retryWrites=true&w=majority"
+#app.config['SECRET_KEY'] = "secret_key"
+
+app.secret_key = os.environ['SECRET_KEY']
+#Connect your MonogDB collection to the Flask application
+client = pymongo.MongoClient(os.environ['mongodb+srv://jovy:Jetzuko0429@cluster0.0s51g.mongodb.net/assignment-two?retryWrites=true&w=majority'])
+
 
 mongo = PyMongo(app, tlsCAFile=certifi.where())
 
